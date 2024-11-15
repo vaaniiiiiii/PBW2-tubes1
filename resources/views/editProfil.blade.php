@@ -13,6 +13,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <nav class="bg-background py-3">
         <div class="container">
             <div class="row">
@@ -45,10 +46,60 @@
           <i class="fa-solid fa-circle-chevron-left fs-4 mt-2"></i>
         </a>
         <div class="rounded-4 border border-black p-0 flex-grow-1" style="max-width: 50%;">
+=======
+  <nav class="bg-background py-3">
+    <div class="container">
+        <div class="row">
+            <div class="logo col-4 d-flex justify-content-start align-items-center">
+                <img src="/img/logoo.png" alt="logoProfil" width="70">
+            </div>
+            <div class="col-4 d-flex justify-content-center align-items-center"><a href="/beranda">Beranda</a></div>
+            @auth
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <a class="btn dropdown-toggle" href="#" role="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{{ auth()->user()->avatar ? asset(auth()->user()->avatar) : '/img/user-avatar.png' }}" alt="Profile" class="rounded-circle" width="30" height="30">
+                    </a>
+
+                    @if (Auth::check())
+                    <p class="mb-0 fw-bold">{{ Auth::user()->username }}</p>
+                    @endif
+
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="/profil">Profile</a></li>
+                        <li><a class="dropdown-item" href="/pengaturan">pengaturan</a></li>
+                        <li><form method="POST" action="{{ route('logout') }}" class="class="ms-2">
+                            @csrf
+                            <button type="submit" class="btn btn-danger px-3 py-1 dropdown-item">Logout</button>
+                        </form></li>
+
+                    </ul>
+
+                </div>
+            @else
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <button>
+                        <a href="/login" class="bg-primary px-4 py-2 rounded text-white">Login</a>
+                    </button>
+                </div>
+            @endauth
+        </div>
+    </div>
+</nav>
+
+  <!-- MAIN -->
+  <main class="d-flex h-100 w-100 align-items-center justify-content-center py-5">
+    <div class="container w-75 h-100">
+      <div class="d-flex gap-3 my-4 justify-content-center">
+        <a href="lihat-profil.php">
+          <i class="fa-solid fa-circle-chevron-left fs-3 mt-2"></i>
+        </a>
+        <div class="rounded-4 border border-black p-0 flex-grow-1" style="max-width: 75%;">
+>>>>>>> 0e9cd92 (first commit)
           <div class="d-flex align-items-center justify-content-between border-bottom border-black p-3">
             <h2 class="fw-bold text-center m-0">Edit Profil</h2>
             <img src="" alt="" class="img-fluid">
           </div>
+<<<<<<< HEAD
           <form class="p-3" method="post">
             <div class="mb-3">
               <label for="username" class="form-label fw-bold">Nama Pengguna</label>
@@ -68,6 +119,62 @@
         </div>
       </div>
     </div>
+=======
+          <form class="p-3" action="/profile" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="container mt-10">
+              <div class="col-md-20">
+                  <div class="container mt-10">
+                      <div class="col-md-20">
+                          <div class="mb-3 p-2">
+                              <!-- Avatar pengguna di tengah -->
+                              <div class="d-flex justify-content-center">
+                                  <img src="{{ auth()->user()->avatar ? asset(auth()->user()->avatar) : '/img/user-avatar.png' }}" 
+                                       alt="Foto Profil" 
+                                       class="img-fluid rounded-circle" 
+                                       width="100" 
+                                       id="profileImage">
+                              </div>
+              
+                              <!-- Input untuk mengganti avatar tanpa JavaScript -->
+                              <div class="mt-3">
+                                  <label for="profileImageInput" class="form-label fw-bold">Ganti Foto Profil</label>
+                                  <input type="file" id="profileImageInput" name="avatar" class="form-control" accept="image/*">
+                              </div>
+              
+                              <!-- Field Nama Pengguna -->
+                              <div class="mt-3">
+                                  <label for="username" class="form-label fw-bold">Nama Pengguna</label>
+                                  <input type="text" 
+                                         class="form-control" 
+                                         id="username" 
+                                         name="username" 
+                                         value="{{ auth()->user()->username }}">
+                              </div>
+              
+                              <!-- Field Bio/Deskripsi -->
+                              <div class="mt-3">
+                                  <label for="bio" class="form-label fw-bold">Bio</label>
+                                  <textarea class="form-control" 
+                                            id="bio" 
+                                            name="bio" 
+                                            rows="4">{{ auth()->user()->bio }}</textarea>
+                              </div>
+              
+                              <!-- Tombol Simpan dan Batal -->
+                              <div class="d-flex align-items-center justify-content-end gap-3 mt-3">
+                                  <a href="{{ route('profile.show') }}">
+                                      <button type="button" class="btn button-secondary-80 rounded-pill px-3 py-1 fw-bold">Batal</button>
+                                  </a>
+                                  <button type="submit" class="btn shadow-sm border rounded-pill px-3 py-1 fw-bold">Simpan</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </form>
+              </div>
+                                     
+>>>>>>> 0e9cd92 (first commit)
   </main>
   <!-- END MAIN -->
 

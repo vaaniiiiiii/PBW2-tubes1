@@ -18,6 +18,7 @@
 <!-- MAIN -->
 
 <body>
+<<<<<<< HEAD
     <nav class="bg-background py-3">
         <div class="container">
             <div class="row">
@@ -44,12 +45,82 @@
 
   <main class="d-flex align-items-start gap-3 justify-content-center mx-auto mt-5">
     <a href="lihat-profil.php"><i class="fa-solid fa-circle-chevron-left fs-4 mt-3"></i></a>
+=======
+  <nav class="bg-background py-3">
+    <div class="container">
+        <div class="row">
+            <div class="logo col-4 d-flex justify-content-start align-items-center">
+                <img src="/img/logoo.png" alt="logoProfil" width="70">
+            </div>
+            <div class="col-4 d-flex justify-content-center align-items-center"><a href="/beranda">Beranda</a></div>
+            @auth
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <a class="btn dropdown-toggle" href="#" role="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{{ auth()->user()->avatar ? asset(auth()->user()->avatar) : '/img/user-avatar.png' }}" alt="Profile" class="rounded-circle" width="30" height="30">
+                    </a>
+
+                    @if (Auth::check())
+                    <p class="mb-0 fw-bold">{{ Auth::user()->username }}</p>
+                    @endif
+
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="/profil">Profile</a></li>
+                        <li><a class="dropdown-item" href="/pengaturan">pengaturan</a></li>
+                        <li><form method="POST" action="{{ route('logout') }}" class="class="ms-2">
+                            @csrf
+                            <button type="submit" class="btn btn-danger px-3 py-1 dropdown-item">Logout</button>
+                        </form></li>
+
+                    </ul>
+
+                </div>
+            @else
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <button>
+                        <a href="/login" class="bg-primary px-4 py-2 rounded text-white">Login</a>
+                    </button>
+                </div>
+            @endauth
+        </div>
+    </div>
+</nav>
+
+  <main class="d-flex align-items-start gap-3 justify-content-center mx-auto mt-5">
+    <a href="lihat-profil.php"><i class="fa-solid fa-circle-chevron-left fs-4 mt-3"></i></a>
+    <div class="modal fade" id="deleteAccountModal" tabindex="-1" aria-labelledby="deleteAccountModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="deleteAccountModalLabel">Konfirmasi Penghapusan</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  Apakah Anda yakin ingin menghapus akun ini?
+              </div>
+              <div class="modal-footer">
+                <form action="{{ route('deleteAccount') }}" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-danger">Hapus</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+              </form>
+              </div>
+          </div>
+      </div>
+  </div>
+>>>>>>> 0e9cd92 (first commit)
     <div id="video-added" class="border border-dark rounded-4 p-3 w-25">
       <h5 class="fw-bold mb-3">Kelola Akun</h5>
       <div class="d-flex align-items-center justify-content-between mb-2">
         <p class="m-0 fw-medium text-muted">Hapus akun</p>
         <div class="d-flex align-items-center gap-1">
+<<<<<<< HEAD
           <p class="m-0 fw-medium text-muted">Hapus</p>
+=======
+          <button type="button" class="btn btn-link text-muted" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
+            Hapus
+        </button>
+>>>>>>> 0e9cd92 (first commit)
           <i class="fa-solid fa-chevron-right text-muted"></i>
         </div>
       </div>

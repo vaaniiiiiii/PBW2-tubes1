@@ -14,6 +14,11 @@
     <link rel="stylesheet" href="/css/global.css" />
     <link rel="stylesheet" href="/css/beranda.css" />
     <script src="https://kit.fontawesome.com/72cab53f1b.js" crossorigin="anonymous"></script>
+<<<<<<< HEAD
+=======
+</head>
+
+>>>>>>> 0e9cd92 (first commit)
 
 <body>
 
@@ -26,7 +31,10 @@
         </div>
     </header> --}}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0e9cd92 (first commit)
     <nav class="bg-background py-3">
         <div class="container">
             <div class="row">
@@ -35,10 +43,32 @@
                 </div>
                 <div class="col-4 d-flex justify-content-center align-items-center"><a href="/beranda">Beranda</a></div>
                 @auth
+<<<<<<< HEAD
                     <div class="col-4 d-flex justify-content-center align-items-center">
                         <a href="/pengguna">
                             <img src="/img/user-avatar.png" alt="logoProfil" width="40">
                         </a>
+=======
+                    <div class="col-4 d-flex justify-content-end align-items-center">
+                        <a class="btn dropdown-toggle" href="#" role="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{{ auth()->user()->avatar ? asset(auth()->user()->avatar) : '/img/user-avatar.png' }}" alt="Profile" class="rounded-circle" width="30" height="30">
+                        </a>
+
+                        @if (Auth::check())
+                        <p class="mb-0 fw-bold">{{ Auth::user()->username }}</p>
+                        @endif
+
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                            <li><a class="dropdown-item" href="/profil">Profile</a></li>
+                            <li><a class="dropdown-item" href="/pengaturan">pengaturan</a></li>
+                            <li><form method="POST" action="{{ route('logout') }}" class="class="ms-2">
+                                @csrf
+                                <button type="submit" class="btn btn-danger px-3 py-1 dropdown-item">Logout</button>
+                            </form></li>
+
+                        </ul>
+
+>>>>>>> 0e9cd92 (first commit)
                     </div>
                 @else
                     <div class="col-4 d-flex justify-content-end align-items-center">
@@ -53,7 +83,11 @@
 
     <main class="container position-relative">
         <p class="not-found"></p>
+<<<<<<< HEAD
         <div class="search-container mt-4 pt-4 sticky-top bg-white">
+=======
+        <div class="search-container mt-4 pt-4">
+>>>>>>> 0e9cd92 (first commit)
             <form action="beranda.blade.php" method="get">
                 <div class="mb-3 position-relative w-50 mx-auto">
                     <input type="text" name="keyword" class="form-control rounded-pill pe-5" placeholder="Telusuri"
@@ -71,6 +105,7 @@
                 <p class="fw-bold ">Hai, {{ Auth::user()->username }}</p>
             </div>
 
+<<<<<<< HEAD
             <form method="post" action="{{ route('logout') }}">
                 @csrf
                 <button class="bg-danger text-white px-3 py-1 rounded mb-3">Logout</button>
@@ -95,6 +130,35 @@
                 </div>
             </a>
             <a href="putar_video.php" class="col-4 image-card py-4">
+=======
+
+        @endauth
+
+        <div class="mb-4">
+            <a href="/" class="button">
+                <button class="semua fw-bold px-2 py-1 rounded">Semua video</button>
+            </a>
+        </div>
+
+        <div class="row g-5">
+            @foreach ($videos as $video)
+                <a href="/video/{{ $video->id }}" class="col-4 image-card py-4">
+                    <img src="{{ asset($video->thumbnail) }}" alt="{{ $video->thumbnail }}" class="img-fluid">
+                    <img src="../storage/" alt="">
+                    <div class="d-flex align-items-center gap-3 mt-2">
+                        <img src="/img/profilcabila.png" alt="" class="img-fluid" width="45">
+                        <div>
+                            <p class="fw-bold m-0 mt-2">{{ $video->judul }}</p>
+                            <small class="text-secondary fw-bold d-block">{{ $video->user->username }}</small>
+                            {{-- <small class="single-line-text d-block w-100">{{ $video->deskripsi }}</small> --}}
+                            <small class="text-muted">{{ $video->created_at->diffForHumans() }}</small>
+                        </div>
+                    </div>
+                </a>
+                @endforeach
+        </div>
+            {{-- <a href="putar_video.php" class="col-4 image-card py-4">
+>>>>>>> 0e9cd92 (first commit)
                 <img src="/img/bambu.png" alt="" class="img-fluid">
                 <div class="d-flex align-items-start gap-3 mt-2">
                     <img src="/img/vaniprofil.png" alt="" class="img-fluid" width="45">
@@ -182,8 +246,13 @@
                     </div>
                 </div>
             </a>
+<<<<<<< HEAD
         </div>
         <!-- <a href="putar_video.php" class="col-4 image-card py-4">
+=======
+        </div> --}}
+            <!-- <a href="putar_video.php" class="col-4 image-card py-4">
+>>>>>>> 0e9cd92 (first commit)
   <img src="assets/img/kalenglilin.png" alt="" class="img-fluid">
   <div class="d-flex align-items-start gap-3 mt-2">
     <img src="assets/img/profilkaleng.png" alt="" class="img-fluid" width="45">
@@ -194,7 +263,11 @@
     </div>
   </div>
 </a> -->
+<<<<<<< HEAD
         <!-- <a href="putar_video.php" class="col-4 image-card py-4">
+=======
+            <!-- <a href="putar_video.php" class="col-4 image-card py-4">
+>>>>>>> 0e9cd92 (first commit)
   <img src="assets/img/tasaquagelas.png" alt="" class="img-fluid">
   <div class="d-flex align-items-start gap-3 mt-2">
     <img src="assets/img/profilbimo.png" alt="" class="img-fluid" width="45">
@@ -205,7 +278,11 @@
     </div>
   </div>
 </a> -->
+<<<<<<< HEAD
         <!-- <a href="putar_video.php" class="col-4 image-card py-4">
+=======
+            <!-- <a href="putar_video.php" class="col-4 image-card py-4">
+>>>>>>> 0e9cd92 (first commit)
   <img src="assets/img/kotak.png" alt="" class="img-fluid">
   <div class="d-flex align-items-start gap-3 mt-2">
     <img src="assets/img/profildvd.png" alt="" class="img-fluid" width="45">
@@ -216,7 +293,11 @@
     </div>
   </div>
 </a> -->
+<<<<<<< HEAD
         <!-- <a href="putar_video.php" class="col-4 image-card py-4">
+=======
+            <!-- <a href="putar_video.php" class="col-4 image-card py-4">
+>>>>>>> 0e9cd92 (first commit)
   <img src="assets/img/hiasan.png" alt="" class="img-fluid">
   <div class="d-flex align-items-start gap-3 mt-2">
     <img src="assets/img/profilcabila.png" alt="" class="img-fluid" width="45">
@@ -227,7 +308,11 @@
     </div>
   </div>
 </a> -->
+<<<<<<< HEAD
         <!-- <a href="putar_video.php" class="col-4 image-card py-4">
+=======
+            <!-- <a href="putar_video.php" class="col-4 image-card py-4">
+>>>>>>> 0e9cd92 (first commit)
   <img src="assets/img/dompetkecap.png" alt="" class="img-fluid">
   <div class="d-flex align-items-start gap-3 mt-2">
     <img src="assets/img/vaniprofil.png" alt="" class="img-fluid" width="45">
@@ -273,7 +358,11 @@
                 </div>
                 <div class="col-6 text-white">
                     <h4 class="fw-bold">About Us</h4>
+<<<<<<< HEAD
                     <p class="m-0 text-white">Pada situs web ini kami akan berbagi totorial pengelolahan sampah yang
+=======
+                    <p class="m-0 text-white">Pada situs web ini kami akan berbagi tutorial pengelolahan sampah yang
+>>>>>>> 0e9cd92 (first commit)
                         bisa di daur
                         ulang
                         kembali, untuk
@@ -293,6 +382,7 @@
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
     </script>
 
+<<<<<<< HEAD
     <script>
         if (document.querySelector('.avatar-img')) {
             const profileBtn = document.querySelector('#profileBtn')
@@ -309,6 +399,38 @@
                 floatingMenu.classList.remove("show")
             })
         }
+=======
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById("floatingMenu");
+        var layer = document.getElementById("backLayer");
+
+        // Toggle visibility of floating menu and back layer
+        if (menu.classList.contains("d-none")) {
+            menu.classList.remove("d-none");
+            layer.classList.remove("d-none");
+        } else {
+            menu.classList.add("d-none");
+            layer.classList.add("d-none");
+        }
+    }
+</script>
+
+    <script>
+        // const profileBtn = document.querySelector('#profileBtn')
+        // const floatingMenu = document.querySelector('.floating-menu')
+        // const backLayer = document.querySelector('.back-layer')
+
+        // profileBtn.addEventListener('click', function() {
+        //     backLayer.classList.add("show")
+        //     floatingMenu.classList.add("show")
+        // })
+
+        // backLayer.addEventListener('click', function() {
+        //     backLayer.classList.remove("show")
+        //     floatingMenu.classList.remove("show")
+        // })
+>>>>>>> 0e9cd92 (first commit)
     </script>
 </body>
 

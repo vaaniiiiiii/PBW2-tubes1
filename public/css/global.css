@@ -26,7 +26,16 @@ main {
   min-height: 60vh;
 }
 
+<<<<<<< HEAD
 ul 
+=======
+.single-line-text {
+  white-space: nowrap;          /* Mencegah teks membungkus ke baris baru */
+  overflow: hidden;             /* Menyembunyikan teks yang melebihi lebar elemen */
+  text-overflow: ellipsis;      /* Menambahkan elipsis (...) pada teks yang terpotong */
+  /* width: 200px;                 Tentukan lebar elemen sesuai kebutuhan */
+}
+>>>>>>> 0e9cd92 (first commit)
 
 .not-found {
   position: absolute;

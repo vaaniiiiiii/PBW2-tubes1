@@ -3,10 +3,18 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+=======
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+>>>>>>> 0e9cd92 (first commit)
 
 class User extends Authenticatable
 {
@@ -20,6 +28,10 @@ class User extends Authenticatable
     protected $fillable = [
         'username',
         'email',
+<<<<<<< HEAD
+=======
+        'bio',
+>>>>>>> 0e9cd92 (first commit)
         'avatar',
         'password',
     ];
@@ -42,4 +54,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+<<<<<<< HEAD
+=======
+
+    use SoftDeletes;
+
+    public function videos()
+    {
+        return $this->hasMany(Video::class);
+    }
+>>>>>>> 0e9cd92 (first commit)
 }

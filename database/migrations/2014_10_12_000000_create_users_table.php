@@ -17,11 +17,19 @@ return new class extends Migration
             $table->id();
             $table->string('username');
             $table->string('avatar')->nullable();
+<<<<<<< HEAD
+=======
+            $table->string('bio')->nullable();
+>>>>>>> 0e9cd92 (first commit)
             $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+<<<<<<< HEAD
+=======
+            $table->softDeletes(); // Tambahkan kolom untuk soft delete
+>>>>>>> 0e9cd92 (first commit)
         });
     }
 

@@ -13,7 +13,10 @@
 
 <body>
   <!-- HEADER -->
+<<<<<<< HEAD
   {{-- <?php navbar("active py-3", ""); ?> --}}
+=======
+>>>>>>> 0e9cd92 (first commit)
   <!-- END HEADER -->
 
   <!-- MAIN -->

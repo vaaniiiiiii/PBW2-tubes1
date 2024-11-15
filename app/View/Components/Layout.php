@@ -23,6 +23,10 @@ class Layout extends Component
      */
     public function render()
     {
+<<<<<<< HEAD
         return view('components.layout');
+=======
+        return View ('components.layout');
+>>>>>>> 0e9cd92 (first commit)
     }
 }
